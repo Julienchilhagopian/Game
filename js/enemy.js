@@ -5,7 +5,7 @@ function Enemy (ctx) {
   this.ctx = ctx; 
 
   this.position = {
-    x: Math.floor(Math.random() * 200),
+    x: Math.floor(Math.random() * canvas.width),
     y: 0,
   };
   
@@ -46,7 +46,25 @@ Enemy.prototype.move = function () {
   self.position.y -= self.speed.y;
 }
 
-Enemy.prototype.nextOne = function () {
+// Enemy.prototype.nextOne = function () {
+//   var self = this;
+//   self.speed.x = 0.20; 
+// }
+
+Enemy.prototype.checkCollision = function () {
   var self = this;
-  self.speed.x = 0.20; 
-}
+  if (self.position.y <= 0 ){
+    self.speed.y *= -1;
+  } 
+  else if (self.position.y + self.size.height >= canvas.height) {
+    self.speed.y = -self.speed.y
+  } 
+  else if (self.position.x <= 0) {
+    self.speed.x *= -1; 
+  }  
+  else if (self.position.x + self.size.width >= canvas.width) {
+    self.speed.x = -self.speed.x;
+  }
+  
+}; 
+

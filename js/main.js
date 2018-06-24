@@ -38,9 +38,29 @@ function main () {
       
   }
 
+  function handleKeyUp (event) {
+    var self = this;
+    
+      switch(event.key){
+        case 'z': 
+        game.player.moveUp(); 
+        break; 
+        case 's': 
+        game.player.moveDown();
+        break;
+        case 'q':
+        game.player.moveLeft();
+        break;
+        case 'd':
+        game.player.moveRight();
+        break; 
+      }
+      
+  };
+
+
   function playGame() {
     
-
     var canvasCtx = canvas.getContext("2d");
 
     game = new Game(canvasCtx, canvas, endGame);
@@ -51,7 +71,9 @@ function main () {
 
     // gameTest; 
 
-  }
+    document.addEventListener("keydown", handleKeyUp);
+
+  };
 
   function endGame () {
     canvas.remove(); 
@@ -85,4 +107,3 @@ function main () {
 
 
 window.addEventListener('load', main); 
-
