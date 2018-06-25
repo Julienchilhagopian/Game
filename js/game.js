@@ -30,11 +30,13 @@ Game.prototype.start = function () {
 
 Game.prototype.checkIfEnded = function () {
   self = this;
-  
-  if (self.enemy.position.x === self.player.position.x){
+
+  if (self.enemy.position.y + self.enemy.size.height === self.player.height ){
     console.log("COOL"); 
+  } 
+
   }
-}
+
 
 
 Game.prototype.implementCheckCollision = function () {
