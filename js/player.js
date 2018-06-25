@@ -4,7 +4,7 @@ function Player(ctx) {
   this.ctx  = ctx; 
 
   this.position = {
-    x: 20, 
+    x: 40, 
     y: 20, 
 
   }

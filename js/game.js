@@ -67,12 +67,19 @@ Game.prototype.giftCollision = function () {
     giftData.x + giftData.width > playerData.x &&
     giftData.y < playerData.y + playerData.height &&
     giftData.height + giftData.y > playerData.y) {
-     console.log("PUTAIN"); 
+
+     var giftPower = function (){
+       console.log("putain")
+       return self.player.smaller();
+      }
+      giftPower();
  }
 
 
-
 }
+
+
+
 
 Game.prototype.implementCheckCollision = function () {
   var self = this;
@@ -112,6 +119,7 @@ Game.prototype.doFrame = function () {
   var self = this;
 
   // self.checkIfEnded();
+ 
   self.giftCollision();
   self.implementCheckCollision();
   self.clearCanvas();
