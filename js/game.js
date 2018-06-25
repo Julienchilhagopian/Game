@@ -10,6 +10,7 @@ function Game(ctx, canvas, cb) {
 
 this.player = null; 
 this.enemy = null; 
+this.gift = null; 
 this.callback = cb; 
 this.isEnded = false; 
 this.start();
@@ -22,8 +23,8 @@ Game.prototype.start = function () {
 
   
   self.enemy = new Enemy(self.ctx);
-  
   self.player = new Player(self.ctx);  
+  self.gift = new Gift('smaller', self.ctx)
   
   self.doFrame();
 };
@@ -44,7 +45,18 @@ Game.prototype.start = function () {
 
 //   }; 
 
+Game.prototype.giftCollision = function () {
+  var self = this;
 
+  var giftData = {
+    x: self.gift.position.x, 
+    y: self.gift.position.y, 
+
+  };
+
+  
+
+}
 
 Game.prototype.implementCheckCollision = function () {
   var self = this;
@@ -65,6 +77,8 @@ Game.prototype.draw = function () {
 
   self.enemy.draw();
   self.player.draw();
+  self.gift.draw();
+  
 
 };
 

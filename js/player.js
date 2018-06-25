@@ -19,6 +19,8 @@ function Player(ctx) {
     y: 15, 
   }
 
+  this.gift = null; 
+
 }
 
   Player.prototype.draw = function () {
@@ -29,22 +31,37 @@ function Player(ctx) {
 
   Player.prototype.moveUp = function () {
     var self = this;
-    self.position.y -= 15;
+    self.position.y -= 20;
   }
   
   Player.prototype.moveDown = function () {
     var self = this;
-    self.position.y += 10;
+    self.position.y += 20;
   }
 
   Player.prototype.moveLeft = function () {
     var self = this;
-    self.position.x -= 10;
+    self.position.x -= 20;
   }
 
   Player.prototype.moveRight = function () {
     var self = this;
-    self.position.x += 10;
+    self.position.x += 20;
+  }
+
+
+  Player.prototype.smaller = function () {
+    var self = this;
+
+    self.size.width = 5;
+    self.size.height = 5;
+
+  }
+
+  Player.prototype.checkGiftCollision = function () {
+
+    
+
   }
 
 
