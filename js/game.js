@@ -78,6 +78,34 @@ Game.prototype.giftCollision = function () {
 
 }
 
+Game.prototype.playerCollisionBall = function () {
+
+  var self = this;
+
+  var enemyData = {
+    radius: self.enemy.radius,
+    x: self.enemy.x - 10,
+    y: self.enemy.y - 10,
+
+  };
+
+  var playerData = {
+     radius: (self.player.size.width / 2) ,
+     x: self.player.position.x ,
+     y: self.player.position.y + 5,
+  };
+  
+  var distanceX = enemyData.x - playerData.x;
+  var distanceY = enemyData.y - playerData.y;
+  var distance = Math.sqrt(distanceX * distanceX + distanceY * distanceY);
+  
+  if (distance < enemyData.radius + playerData.radius) {
+     console.log("OH MON DIEU");
+     self.isEnded = true; 
+  }
+
+}
+
 
 
 
@@ -119,7 +147,8 @@ Game.prototype.doFrame = function () {
   var self = this;
 
   // self.checkIfEnded();
- 
+
+  self.playerCollisionBall();
   self.giftCollision();
   self.implementCheckCollision();
   self.clearCanvas();
