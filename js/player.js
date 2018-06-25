@@ -58,11 +58,7 @@ function Player(ctx) {
 
   }
 
-  Player.prototype.checkGiftCollision = function () {
-
-    
-
-  }
+  
 
 
 

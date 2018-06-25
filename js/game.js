@@ -51,10 +51,26 @@ Game.prototype.giftCollision = function () {
   var giftData = {
     x: self.gift.position.x, 
     y: self.gift.position.y, 
+    width: self.gift.size.width, 
+    height: self.gift.size.height,
 
   };
 
-  
+  var playerData = {
+    x: self.player.position.x, 
+    y: self.player.position.y, 
+    width: self.player.size.width, 
+    height: self.player.size.height,
+  }
+
+  if (giftData.x < playerData.x + playerData.width &&
+    giftData.x + giftData.width > playerData.x &&
+    giftData.y < playerData.y + playerData.height &&
+    giftData.height + giftData.y > playerData.y) {
+     console.log("PUTAIN"); 
+ }
+
+
 
 }
 
@@ -96,6 +112,7 @@ Game.prototype.doFrame = function () {
   var self = this;
 
   // self.checkIfEnded();
+  self.giftCollision();
   self.implementCheckCollision();
   self.clearCanvas();
   self.draw();
