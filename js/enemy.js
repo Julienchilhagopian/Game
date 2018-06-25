@@ -21,27 +21,31 @@ function Enemy (ctx) {
     y: 0.75,
   }; 
 
+
+
+
 };
 
 
 Enemy.prototype.draw = function () {
   var self = this; 
-
-
+  
+  self.ctx.fillStyle = "red";
   self.ctx.fillRect(self.position.x, self.position.y, self.size.width, self.size.width);
 
   // var endAngle = Math.PI*2; 
   // self.ctx.arc(self.position.x, self.position.y, self.size.radius, 0, endAngle, true);
   // self.ctx.stroke();
 
-  self.ctx.fillStyle = "red";
-  self.ctx.fill();
+ 
+
 
 };
 
 
 Enemy.prototype.move = function () {
   var self = this;
+    
   self.position.x += self.speed.x;
   self.position.y -= self.speed.y;
 }

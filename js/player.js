@@ -19,6 +19,7 @@ function Player(ctx) {
     y: 15, 
   }
 
+}
 
   Player.prototype.draw = function () {
     var self = this;
@@ -49,4 +50,6 @@ function Player(ctx) {
 
 
 
-}
+
+
+

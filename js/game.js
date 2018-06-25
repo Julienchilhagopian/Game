@@ -7,9 +7,9 @@ function Game(ctx, canvas, cb) {
     height: canvas.height, 
   };
 
+
 this.player = null; 
 this.enemy = null; 
-// this.enemy1 = null;
 this.callback = cb; 
 this.isEnded = false; 
 this.start();
@@ -22,20 +22,27 @@ Game.prototype.start = function () {
 
   
   self.enemy = new Enemy(self.ctx);
-  // self.enemy1 = new Enemy(self.ctx);
+  
   self.player = new Player(self.ctx);  
   
   self.doFrame();
 };
 
-Game.prototype.checkIfEnded = function () {
-  self = this;
+// Game.prototype.checkIfEnded = function () {
+//   self = this;
 
-  if (self.enemy.position.y + self.enemy.size.height === self.player.height ){
-    console.log("COOL"); 
-  } 
+//   if (self.enemy.top() === self.player.top()){
+//     console.log("COOL top"); 
+//   } else if (self.enemy.right() === self.player.right()) {
+//     console.log("Cool right");
+//   } else if (self.enemy.bottom() === self.player.bottom()) {
+//     console.log("Cool bottom");
+//   } else if (self.enemy.left() === self.player.left()) {
+//     console.log("Cool left");
+//   };
 
-  }
+
+//   }; 
 
 
 
@@ -43,7 +50,7 @@ Game.prototype.implementCheckCollision = function () {
   var self = this;
 
   self.enemy.checkCollision(); 
-  // self.enemy1.checkCollision(); 
+  
 
 };
 
@@ -55,23 +62,26 @@ Game.prototype.clearCanvas = function () {
 
 Game.prototype.draw = function () {
   var self = this;
-  self.enemy.draw();
-  // self.enemy1.draw();
 
+  self.enemy.draw();
   self.player.draw();
+
 };
 
 Game.prototype.update = function () {
   var self = this;
+
   self.enemy.move()
-  // self.enemy1.move();
+  // self.player.move();
+
+
 };
 
 
 Game.prototype.doFrame = function () {
   var self = this;
 
-  self.checkIfEnded();
+  // self.checkIfEnded();
   self.implementCheckCollision();
   self.clearCanvas();
   self.draw();

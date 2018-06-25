@@ -38,7 +38,7 @@ function main () {
       
   }
 
-  function handleKeyUp (event) {
+  function handleKeyDown (event) {
     var self = this;
     
       switch(event.key){
@@ -71,7 +71,7 @@ function main () {
 
     // gameTest; 
 
-    document.addEventListener("keydown", handleKeyUp);
+    document.addEventListener("keydown", handleKeyDown);
 
   };
 
