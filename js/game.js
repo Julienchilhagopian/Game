@@ -112,9 +112,19 @@ Game.prototype.giftCollisionFINAL = function (item) {
 
      var giftPower = function (){
        if (item.name === 'smaller') {
-        self.player.smallerPower();
+        self.player.smallerPowerGift();
+
+        setTimeout(function() {
+          self.player.normalPlayer();
+        }, 5000); 
+
        } else if (item.name === 'bigger') {
-        self.player.biggerPower(); 
+        self.player.biggerPowerGift();
+
+        setTimeout(function() {
+          self.player.normalPlayer();
+        }, 5000);  
+        
        }; 
        
       

@@ -19,7 +19,6 @@ function Player(ctx) {
     y: 15, 
   }
 
- this.radius = (this.size.width / 2);
 
 }
 
@@ -50,23 +49,29 @@ function Player(ctx) {
   }
 
 
-  Player.prototype.smallerPower = function () {
+  Player.prototype.smallerPowerGift = function () {
     var self = this;
 
     self.size.width = 5;
     self.size.height = 5;
 
-  }
+  };
 
-  Player.prototype.biggerPower = function () {
+  Player.prototype.biggerPowerGift = function () {
     var self = this;
   
-    self.radius = 50;
     self.size.width = 75;
     self.size.height = 75;
 
-  }
+  };
 
+  Player.prototype.normalPlayer = function () {
+    var self = this;
+
+    self.size.width = 30;
+    self.size.height = 30;
+
+  };
 
 
 
