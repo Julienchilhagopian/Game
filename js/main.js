@@ -31,8 +31,8 @@ function main () {
     canvas.setAttribute("id", "canvas"); 
     container.appendChild(canvas); 
 
-    canvas.width = window.innerWidth; 
-    canvas.height = window.innerHeight; 
+    // canvas.width = window.innerWidth; 
+    // canvas.height = window.innerHeight; 
 
     playGame();
       

@@ -7,19 +7,15 @@ function Game(ctx, canvas, theEnd) {
     height: canvas.height, 
   };
 
+  this.player = null; 
 
-this.player = null; 
-this.enemy = null; 
-this.gift = null; 
-this.callback = theEnd; 
-this.isEnded = false; 
-this.enemyArray = [];
-this.giftArray = []; 
-this.counterEnemy = 0; 
-this.counterGift = 0; 
-this.start();
-
-
+  this.callback = theEnd; 
+  this.isEnded = false; 
+  this.enemyArray = [];
+  this.giftArray = []; 
+  this.counterEnemy = 0; 
+  this.counterGift = 0; 
+  this.start();
 
 };
 
@@ -29,8 +25,8 @@ Game.prototype.addEnemy = function () {
   self.enemyArray.push(new Enemy(self.ctx));
   console.log(self.enemyArray);
   
- 
 } 
+
 
 Game.prototype.addGift = function () {
   var self = this; 
@@ -50,79 +46,11 @@ Game.prototype.removeGift = function () {
 Game.prototype.start = function () {
   var self = this;
 
-  
-  self.enemy = new Enemy(self.ctx);
   self.player = new Player(self.ctx);  
-  self.gift = new Gift('smaller', self.ctx); 
-
  
-
   self.doFrame();
 };
 
-
-Game.prototype.giftCollision = function () {
-  var self = this;
-
-  var giftData = {
-    x: self.gift.position.x, 
-    y: self.gift.position.y, 
-    width: self.gift.size.width, 
-    height: self.gift.size.height,
-
-  };
-
-  var playerData = {
-    x: self.player.position.x, 
-    y: self.player.position.y, 
-    width: self.player.size.width, 
-    height: self.player.size.height,
-  }
-
-  if (giftData.x < playerData.x + playerData.width &&
-    giftData.x + giftData.width > playerData.x &&
-    giftData.y < playerData.y + playerData.height &&
-    giftData.height + giftData.y > playerData.y) {
-
-     var giftPower = function (){
-       console.log("putain")
-       self.player.smallerPower();
-      
-      }
-      giftPower();
- }
-
-
-}
-
-Game.prototype.playerCollisionEnemy = function () {
-
-  var self = this;
-
-  var enemyData = {
-    x: self.enemy.x, 
-    y: self.enemy.y, 
-    width: self.enemy.size.width, 
-    height: self.enemy.size.height,
-
-  };
-
-  var playerData = {
-    x: self.player.position.x, 
-    y: self.player.position.y, 
-    width: self.player.size.width, 
-    height: self.player.size.height,
-  }
-
-  if (enemyData.x < playerData.x + playerData.width &&
-    enemyData.x + enemyData.width > playerData.x &&
-    enemyData.y < playerData.y + playerData.height &&
-    enemyData.height + enemyData.y > playerData.y) {
-      console.log("ok"); 
-      this.isEnded = true; 
-}
-
-}
 
 // COLLISION WORKING FOR ADDING GIFT OR ENNEMY 
 
@@ -190,20 +118,8 @@ Game.prototype.giftCollisionFINAL = function (item) {
 
 }
 
-
-
-
-
-
 // END OF THE COLLISION FUNCTIONS
 
-Game.prototype.implementCheckCollision = function () {
-  var self = this;
-
-    self.enemy.checkCollision();
-
-
-};
 
 
 Game.prototype.clearCanvas = function () {
@@ -214,19 +130,11 @@ Game.prototype.clearCanvas = function () {
 Game.prototype.draw = function () {
   var self = this;
 
-  // self.enemy.draw();
   self.player.draw();
-  self.gift.draw();
-  
-
 };
 
 Game.prototype.update = function () {
   var self = this;
-
-  // self.enemy.move()
-  // self.player.move();
-
 
 };
 
@@ -236,14 +144,8 @@ Game.prototype.doFrame = function () {
   self.counterEnemy++; 
   self.counterGift++; 
 
-  // self.checkIfEnded();
-  
-  self.playerCollisionEnemy();
-  self.giftCollision();
-  // self.collisionDetector(self.gift, self.player);
-  self.implementCheckCollision();
+
   self.clearCanvas();
-  self.update();
   self.draw();
 
 
@@ -261,7 +163,7 @@ Game.prototype.doFrame = function () {
     self.playerCollisionFINAL(item); 
   })
  
-  // ADDING GIFTS 
+  // ADDING AND REMOVING GIFTS 
 
   if (self.counterGift === 100) {
     self.addGift();
@@ -275,8 +177,6 @@ Game.prototype.doFrame = function () {
     item.draw();
     self.giftCollisionFINAL(item); 
   })
-
-
 
   
   window.requestAnimationFrame(function() {
