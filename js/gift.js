@@ -5,8 +5,8 @@ function Gift(name, ctx) {
 
 
   this.position = {
-    x: 20, 
-    y: 20, 
+    x: Math.floor(Math.random() * canvas.width), 
+    y: Math.floor(Math.random() * canvas.height), 
 
   }
 
