@@ -15,7 +15,8 @@ function Game(ctx, canvas, theEnd) {
   this.giftArray = []; 
   this.counterEnemy = 0; 
   this.counterGift = 0; 
-  this.giftPowerArray = ['smaller', 'bigger']; 
+  this.giftPowerArray = ['smaller', 'bigger', 'speed']; 
+  this.triggerFastSpeed = false; 
   this.start();
 
 };
@@ -32,7 +33,7 @@ Game.prototype.addEnemy = function () {
 Game.prototype.addGift = function () {
   var self = this; 
 
-  var randomPower = self.giftPowerArray[Math.floor(Math.random() * 2)]
+  var randomPower = self.giftPowerArray[Math.floor(Math.random() * 3)]
 
   self.giftArray.push(new Gift(randomPower, self.ctx)); 
   console.log(self.giftArray); 
@@ -124,8 +125,13 @@ Game.prototype.giftCollisionFINAL = function (item) {
         setTimeout(function() {
           self.player.normalPlayer();
         }, 5000);  
-        
-       }; 
+
+       } else if (item.name === 'speed') {
+         self.triggerFastSpeed = true; 
+         setTimeout(function() {
+          self.triggerFastSpeed = false; 
+         }, 800);  
+      } 
        
       
       }
@@ -168,16 +174,23 @@ Game.prototype.doFrame = function () {
 
   // ADDING ENEMY 
   
-  if (self.counterEnemy === 10) {
+  if (self.counterEnemy === 30) {
     self.addEnemy()
     self.counterEnemy = 0; 
   }
 
   self.enemyArray.forEach(function(item) {
     item.draw();
-    item.move(); 
+    item.move();
+
+    if (self.triggerFastSpeed) {
+    item.speedx += 0.5;
+    item.speedy += 0.5;
+  };
     item.checkCollision();
     self.playerCollisionFINAL(item); 
+    
+
   })
  
   // ADDING AND REMOVING GIFTS 

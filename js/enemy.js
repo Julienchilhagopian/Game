@@ -5,8 +5,8 @@ function Enemy (ctx) {
   this.ctx = ctx; 
 
 
-  this.speedx = 0.250;
-  this.speedy = 0.55;
+  this.speedx = 0.5;
+  this.speedy = 0.75;
  
 
  this.x = Math.floor(Math.random() * canvas.width);
@@ -66,4 +66,5 @@ Enemy.prototype.checkCollision = function () {
   }
   
 }; 
+
 

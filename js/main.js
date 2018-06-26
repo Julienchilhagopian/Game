@@ -32,7 +32,7 @@ function main () {
     container.appendChild(canvas); 
 
     canvas.width = window.innerWidth; 
-    canvas.height = window.innerHeight; 
+    canvas.height = 550; 
 
     playGame();
       
