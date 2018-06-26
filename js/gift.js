@@ -15,19 +15,9 @@ function Gift(name, ctx) {
     height: 15, 
   }
 
-
-
-
 }
 
-Gift.prototype.checkName = function () {
-  var self = this;
 
-  if(self.name = 'smaller') {
-    return true; 
-  }
-
-}
 
 Gift.prototype.draw = function () {
   var self = this;

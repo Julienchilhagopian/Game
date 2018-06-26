@@ -15,6 +15,7 @@ function Game(ctx, canvas, theEnd) {
   this.giftArray = []; 
   this.counterEnemy = 0; 
   this.counterGift = 0; 
+  this.giftPowerArray = ['smaller', 'bigger']; 
   this.start();
 
 };
@@ -31,7 +32,9 @@ Game.prototype.addEnemy = function () {
 Game.prototype.addGift = function () {
   var self = this; 
 
-  self.giftArray.push(new Gift('smaller', self.ctx)); 
+  var randomPower = self.giftPowerArray[Math.floor(Math.random() * 2)]
+
+  self.giftArray.push(new Gift(randomPower, self.ctx)); 
   console.log(self.giftArray); 
 }
 
@@ -108,8 +111,12 @@ Game.prototype.giftCollisionFINAL = function (item) {
     giftData.height + giftData.y > playerData.y) {
 
      var giftPower = function (){
-       console.log("putain")
-       self.player.smallerPower();
+       if (item.name === 'smaller') {
+        self.player.smallerPower();
+       } else if (item.name === 'bigger') {
+        self.player.biggerPower(); 
+       }; 
+       
       
       }
       giftPower();
