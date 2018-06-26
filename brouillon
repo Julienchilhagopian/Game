@@ -1,0 +1,27 @@
+// Game.prototype.collisionDetector = function (itemOne, itemTwo) {
+//   var self = this;
+
+
+//   var itemOneData = {
+//     x: self[itemOne[position[x]]], 
+//     y: self[itemOne[position[x]]], 
+//     width: self[itemOne[size[width]]], 
+//     height: self[itemOne[size[height]]],
+//   };
+
+//   var itemTwoData = {
+//     x: self[itemTwo[position[x]]], 
+//     y: self[itemTwo[position[x]]], 
+//     width: self[itemTwo[size[width]]], 
+//     height: self[itemTwo[size[height]]],
+//   }
+
+//   if (itemOneData[x] < itemTwoData[x] + itemTwoData[width] &&
+//     itemOneData[x] + itemOneData[width] > itemTwoData[x] &&
+//     itemOneData[y] < itemTwoData[y] + itemTwoData[height] &&
+//     itemOneData[height] + itemOneData[y] > itemTwoData[y]) {
+//       console.log("OMG"); 
+
+//     }
+
+// }

@@ -7,6 +7,7 @@ function Enemy (ctx) {
 
   this.speedx = 0.250;
   this.speedy = 0.55;
+ 
 
  this.x = Math.floor(Math.random() * canvas.width);
  this.y = 10;
@@ -27,7 +28,7 @@ Enemy.prototype.draw = function () {
   
   self.ctx.fillStyle = "red";
   self.ctx.fillRect(self.x, self.y, self.size.width, self.size.width);
-  
+
 
   // self.ctx.beginPath();
   // self.ctx.arc(self.x, self.y, self.radius, 0, Math.PI*2);

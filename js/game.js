@@ -13,9 +13,22 @@ this.enemy = null;
 this.gift = null; 
 this.callback = theEnd; 
 this.isEnded = false; 
+this.enemyArray = []; 
+this.counter = 0; 
 this.start();
 
+
+
 };
+
+Game.prototype.addEnemy = function () {
+  var self = this; 
+
+  self.enemyArray.push(new Enemy(self.ctx));
+  console.log(self.enemyArray);
+  
+ 
+} 
 
 
 Game.prototype.start = function () {
@@ -24,11 +37,12 @@ Game.prototype.start = function () {
   
   self.enemy = new Enemy(self.ctx);
   self.player = new Player(self.ctx);  
-  self.gift = new Gift('smaller', self.ctx)
-  
+  self.gift = new Gift('smaller', self.ctx); 
+
+ 
+
   self.doFrame();
 };
-
 
 
 Game.prototype.giftCollision = function () {
@@ -65,7 +79,7 @@ Game.prototype.giftCollision = function () {
 
 }
 
-Game.prototype.playerCollisionBall = function () {
+Game.prototype.playerCollisionEnemy = function () {
 
   var self = this;
 
@@ -99,8 +113,8 @@ Game.prototype.playerCollisionBall = function () {
 Game.prototype.implementCheckCollision = function () {
   var self = this;
 
-  self.enemy.checkCollision(); 
-  
+    self.enemy.checkCollision();
+
 
 };
 
@@ -132,16 +146,28 @@ Game.prototype.update = function () {
 
 Game.prototype.doFrame = function () {
   var self = this;
+  self.counter++; 
 
   // self.checkIfEnded();
-
-  self.playerCollisionBall();
+  
+  self.playerCollisionEnemy();
   self.giftCollision();
+  // self.collisionDetector(self.gift, self.player);
   self.implementCheckCollision();
   self.clearCanvas();
   self.update();
   self.draw();
-  
+
+  if (self.counter === 150) {
+    self.addEnemy()
+    self.counter = 0; 
+  }
+
+  self.enemyArray.forEach(function(item) {
+    item.draw();
+    item.move(); 
+    item.checkCollision();
+  })
  
   
   window.requestAnimationFrame(function() {
