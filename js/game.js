@@ -70,31 +70,29 @@ Game.prototype.playerCollisionBall = function () {
   var self = this;
 
   var enemyData = {
-    radius: self.enemy.radius,
-    x: self.enemy.x - 10,
-    y: self.enemy.y - 10,
+    x: self.enemy.x, 
+    y: self.enemy.y, 
+    width: self.enemy.size.width, 
+    height: self.enemy.size.height,
 
   };
 
   var playerData = {
-     radius: (self.player.radius) ,
-     x: self.player.position.x ,
-     y: self.player.position.y + 5,
-  };
-
- 
-  
-  var distanceX = enemyData.x - playerData.x;
-  var distanceY = enemyData.y - playerData.y;
-  var distance = Math.sqrt(distanceX * distanceX + distanceY * distanceY);
-  
-  if (distance < enemyData.radius + playerData.radius) {
-     console.log("OH MON DIEU");
-    //  this.isEnded = true; 
+    x: self.player.position.x, 
+    y: self.player.position.y, 
+    width: self.player.size.width, 
+    height: self.player.size.height,
   }
 
+  if (enemyData.x < playerData.x + playerData.width &&
+    enemyData.x + enemyData.width > playerData.x &&
+    enemyData.y < playerData.y + playerData.height &&
+    enemyData.height + enemyData.y > playerData.y) {
+      console.log("ok"); 
+      this.isEnded = true; 
 }
 
+}
 
 
 
