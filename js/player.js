@@ -15,8 +15,8 @@ function Player(ctx) {
   }
 
   this.speed = {
-    x: 15, 
-    y: 15, 
+    x: 0, 
+    y: 0, 
   }
 
 
@@ -28,26 +28,30 @@ function Player(ctx) {
     self.ctx.fillRect(self.position.x, self.position.y, self.size.width, self.size.height); 
   }
 
+  // Movements 
+
   Player.prototype.moveUp = function () {
     var self = this;
-    self.position.y -= 20;
+    self.position.y -= 30;
   }
   
   Player.prototype.moveDown = function () {
     var self = this;
-    self.position.y += 20;
+    self.position.y += 30;
   }
 
   Player.prototype.moveLeft = function () {
     var self = this;
-    self.position.x -= 20;
+    self.position.x -= 30;
   }
 
   Player.prototype.moveRight = function () {
     var self = this;
-    self.position.x += 20;
+    self.position.x += 30;
   }
 
+
+  // Gift powers
 
   Player.prototype.smallerPowerGift = function () {
     var self = this;
@@ -60,8 +64,8 @@ function Player(ctx) {
   Player.prototype.biggerPowerGift = function () {
     var self = this;
   
-    self.size.width = 75;
-    self.size.height = 75;
+    self.size.width = 100;
+    self.size.height = 100;
 
   };
 

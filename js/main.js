@@ -9,8 +9,7 @@ function createHtml(html) {
 
 var introScreen = createHtml(`<div id="intro">
 <h1 class="intro-title">Survive the flames</h1>
-
-
+<button id="">
 </div>`);
 
 
