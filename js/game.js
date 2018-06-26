@@ -109,6 +109,36 @@ Game.prototype.playerCollisionEnemy = function () {
 }
 
 
+Game.prototype.playerCollisionTEST = function (item) {
+
+  var self = this;
+
+  var enemyData = {
+    x: item.x, 
+    y: item.y, 
+    width: item.size.width, 
+    height: item.size.height,
+
+  };
+
+  var playerData = {
+    x: self.player.position.x, 
+    y: self.player.position.y, 
+    width: self.player.size.width, 
+    height: self.player.size.height,
+  }
+
+  if (enemyData.x < playerData.x + playerData.width &&
+    enemyData.x + enemyData.width > playerData.x &&
+    enemyData.y < playerData.y + playerData.height &&
+    enemyData.height + enemyData.y > playerData.y) {
+      console.log("ok"); 
+      this.isEnded = true; 
+}
+
+}
+
+
 
 Game.prototype.implementCheckCollision = function () {
   var self = this;
@@ -158,7 +188,7 @@ Game.prototype.doFrame = function () {
   self.update();
   self.draw();
 
-  if (self.counter === 150) {
+  if (self.counter === 10) {
     self.addEnemy()
     self.counter = 0; 
   }
@@ -167,6 +197,7 @@ Game.prototype.doFrame = function () {
     item.draw();
     item.move(); 
     item.checkCollision();
+    self.playerCollisionTEST(item); 
   })
  
   
