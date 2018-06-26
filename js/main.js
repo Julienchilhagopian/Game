@@ -71,9 +71,7 @@ function main () {
 
     // gameTest; 
 
-    if (game.isEnded == true) {
-      console.log("on est bon");
-    } 
+   
 
     document.addEventListener("keydown", handleKeyDown);
 

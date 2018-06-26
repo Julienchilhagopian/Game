@@ -1,6 +1,6 @@
 "use strict";
 
-function Game(ctx, canvas, cb) {
+function Game(ctx, canvas, theEnd) {
   this.ctx = ctx;
   this.size = {
     width: canvas.width, 
@@ -11,7 +11,7 @@ function Game(ctx, canvas, cb) {
 this.player = null; 
 this.enemy = null; 
 this.gift = null; 
-this.callback = cb; 
+this.callback = theEnd; 
 this.isEnded = false; 
 this.start();
 
@@ -29,21 +29,7 @@ Game.prototype.start = function () {
   self.doFrame();
 };
 
-// Game.prototype.checkIfEnded = function () {
-//   self = this;
 
-//   if (self.enemy.top() === self.player.top()){
-//     console.log("COOL top"); 
-//   } else if (self.enemy.right() === self.player.right()) {
-//     console.log("Cool right");
-//   } else if (self.enemy.bottom() === self.player.bottom()) {
-//     console.log("Cool bottom");
-//   } else if (self.enemy.left() === self.player.left()) {
-//     console.log("Cool left");
-//   };
-
-
-//   }; 
 
 Game.prototype.giftCollision = function () {
   var self = this;
@@ -70,7 +56,8 @@ Game.prototype.giftCollision = function () {
 
      var giftPower = function (){
        console.log("putain")
-       return self.player.smaller();
+       self.player.smallerPower();
+      
       }
       giftPower();
  }
@@ -90,10 +77,12 @@ Game.prototype.playerCollisionBall = function () {
   };
 
   var playerData = {
-     radius: (self.player.size.width / 2) ,
+     radius: (self.player.radius) ,
      x: self.player.position.x ,
      y: self.player.position.y + 5,
   };
+
+ 
   
   var distanceX = enemyData.x - playerData.x;
   var distanceY = enemyData.y - playerData.y;
@@ -101,7 +90,7 @@ Game.prototype.playerCollisionBall = function () {
   
   if (distance < enemyData.radius + playerData.radius) {
      console.log("OH MON DIEU");
-     self.isEnded = true; 
+    //  this.isEnded = true; 
   }
 
 }
@@ -152,13 +141,19 @@ Game.prototype.doFrame = function () {
   self.giftCollision();
   self.implementCheckCollision();
   self.clearCanvas();
-  self.draw();
   self.update();
+  self.draw();
   
  
   
   window.requestAnimationFrame(function() {
-    self.doFrame();
+    if (!self.isEnded) {
+      self.doFrame();
+    }
+    else if (self.isEnded) {
+      self.callback();
+    }
+
   });
 
 
