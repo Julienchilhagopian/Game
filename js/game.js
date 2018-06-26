@@ -15,8 +15,10 @@ function Game(ctx, canvas, theEnd) {
   this.giftArray = []; 
   this.counterEnemy = 0; 
   this.counterGift = 0; 
-  this.giftPowerArray = ['smaller', 'bigger', 'speed']; 
+  this.giftPowerArray = ['smaller', 'bigger', 'speed', 'slow']; 
   this.triggerFastSpeed = false; 
+  this.triggerSlowSpeed = false; 
+  this.eraseGift = false;
   this.start();
 
 };
@@ -33,7 +35,7 @@ Game.prototype.addEnemy = function () {
 Game.prototype.addGift = function () {
   var self = this; 
 
-  var randomPower = self.giftPowerArray[Math.floor(Math.random() * 3)]
+  var randomPower = self.giftPowerArray[Math.floor(Math.random() * 4)]
 
   self.giftArray.push(new Gift(randomPower, self.ctx)); 
   console.log(self.giftArray); 
@@ -110,6 +112,9 @@ Game.prototype.giftCollisionFINAL = function (item) {
     giftData.x + giftData.width > playerData.x &&
     giftData.y < playerData.y + playerData.height &&
     giftData.height + giftData.y > playerData.y) {
+      self.eraseGift = true;
+
+// ADDING THE SPECIAL POWER TO EACH GIFT 
 
      var giftPower = function (){
        if (item.name === 'smaller') {
@@ -128,10 +133,18 @@ Game.prototype.giftCollisionFINAL = function (item) {
 
        } else if (item.name === 'speed') {
          self.triggerFastSpeed = true; 
+
          setTimeout(function() {
           self.triggerFastSpeed = false; 
          }, 800);  
-      } 
+
+      } else if (item.name === 'slow') {
+        self.triggerSlowSpeed = true; 
+
+        setTimeout(function() {
+         self.triggerSlowSpeed = false; 
+        }, 500);  
+      }
        
       
       }
@@ -141,7 +154,7 @@ Game.prototype.giftCollisionFINAL = function (item) {
 
 }
 
-// END OF THE COLLISION FUNCTIONS
+
 
 
 
@@ -183,10 +196,18 @@ Game.prototype.doFrame = function () {
     item.draw();
     item.move();
 
+    // fast speed gift 
     if (self.triggerFastSpeed) {
     item.speedx += 0.5;
     item.speedy += 0.5;
   };
+
+  // slow speed gift 
+  if (self.triggerSlowSpeed) {
+    item.speedx -= 0.03;
+    item.speedy += 0.05;
+  };
+
     item.checkCollision();
     self.playerCollisionFINAL(item); 
     
@@ -198,6 +219,12 @@ Game.prototype.doFrame = function () {
   if (self.counterGift === 100) {
     self.addGift();
     self.counterGift = 101;
+
+  } else if (self.eraseGift) {
+    self.removeGift();
+    self.counterGift = 0; 
+    self.eraseGift = false;
+
   } else if ( self.counterGift === 400) {
     self.removeGift();
     self.counterGift = 0; 

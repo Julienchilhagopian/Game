@@ -5,8 +5,8 @@ function Enemy (ctx) {
   this.ctx = ctx; 
 
 
-  this.speedx = 0.5;
-  this.speedy = 0.75;
+  this.speedx = 0.6;
+  this.speedy = 0.85;
  
 
  this.x = Math.floor(Math.random() * canvas.width);
