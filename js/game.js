@@ -156,6 +156,41 @@ Game.prototype.playerCollisionFINAL = function (item) {
 }
 
 
+Game.prototype.giftCollisionFINAL = function (item) {
+  var self = this;
+
+  var giftData = {
+    x: item.position.x, 
+    y: item.position.y, 
+    width: item.size.width, 
+    height: item.size.height,
+
+  };
+
+  var playerData = {
+    x: self.player.position.x, 
+    y: self.player.position.y, 
+    width: self.player.size.width, 
+    height: self.player.size.height,
+  }
+
+  if (giftData.x < playerData.x + playerData.width &&
+    giftData.x + giftData.width > playerData.x &&
+    giftData.y < playerData.y + playerData.height &&
+    giftData.height + giftData.y > playerData.y) {
+
+     var giftPower = function (){
+       console.log("putain")
+       self.player.smallerPower();
+      
+      }
+      giftPower();
+ }
+
+
+}
+
+
 
 
 
@@ -213,6 +248,7 @@ Game.prototype.doFrame = function () {
 
 
   // ADDING ENEMY 
+  
   if (self.counterEnemy === 10) {
     self.addEnemy()
     self.counterEnemy = 0; 
@@ -237,6 +273,7 @@ Game.prototype.doFrame = function () {
 
   self.giftArray.forEach(function(item) {
     item.draw();
+    self.giftCollisionFINAL(item); 
   })
 
 
