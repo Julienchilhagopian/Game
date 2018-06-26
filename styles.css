@@ -14,6 +14,21 @@ body {
 
 /* ---- Style ---- */
 
+
+
 #canvas {
   border: 1px solid green;
+}
+
+#intro {
+  background-color: rgb(24, 25, 27);
+  background-image: url(https://vignette.wikia.nocookie.net/fantendo/images/9/92/Fire_PNG6032.png/revision/latest?cb=20160606034134);
+  background-position: bottom;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 700px;
+}
+
+.intro-title {
+  color: white; 
 }

@@ -1,5 +1,18 @@
 "use strict";
 
+function createHtml(html) {
+  var div = document.createElement("div");
+  div.innerHTML = html;
+  return div.children[0];
+}
+
+
+var introScreen = createHtml(`<div id="intro">
+<h1 class="intro-title">Survive the flames</h1>
+
+
+</div>`);
+
 
 
 function main () {
@@ -12,16 +25,22 @@ function main () {
 
   function buildSplash() {
     container = document.getElementById("game-container"); 
+    
+    // STYLE 
+    
+    container.appendChild(introScreen);
     button = document.createElement("button"); 
     button.setAttribute("id", "btn-start"); 
     button.innerText = "START"; 
     container.appendChild(button);
     button.addEventListener("click", handleStartClick);
+    
   }
 
   function handleStartClick () {
     button.removeEventListener("click", handleStartClick); 
     button.remove();
+    introScreen.remove();
     buildGame();
 
   }
@@ -32,7 +51,7 @@ function main () {
     container.appendChild(canvas); 
 
     canvas.width = window.innerWidth; 
-    canvas.height = 550; 
+    canvas.height = 610; 
 
     playGame();
       
