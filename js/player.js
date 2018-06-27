@@ -1,5 +1,6 @@
 "use strict";
 
+
 function Player(ctx) {
   this.ctx  = ctx; 
 
@@ -19,13 +20,22 @@ function Player(ctx) {
     y: 0, 
   }
 
+  this.image = new Image(60, 45)
+  this.image.src = 'https://banner2.kisspng.com/20180207/fyq/kisspng-deviantart-flame-icon-golden-yellow-fireball-5a7bb402288d11.6521773815180564501661.jpg'
 
 }
 
   Player.prototype.draw = function () {
     var self = this;
+
+ 
+
+
+
+
     self.ctx.fillStyle = "blue";
-    self.ctx.fillRect(self.position.x, self.position.y, self.size.width, self.size.height); 
+    // self.ctx.fillRect(self.position.x, self.position.y, self.size.width, self.size.height); 
+    self.ctx.drawImage(self.image, self.position.x, self.position.y, self.size.width, self.size.height)
   }
 
   // Movements 

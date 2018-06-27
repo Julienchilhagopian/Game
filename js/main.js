@@ -18,7 +18,6 @@ var endScreen = createHtml(`<div id="end">
 
 </div>`);
 
-
 function main () {
   
   var container = document.getElementById("game-container");  
@@ -102,7 +101,6 @@ function main () {
 
     // gameTest; 
 
-   
 
     document.addEventListener("keydown", handleKeyDown);
 

@@ -201,9 +201,8 @@ Game.prototype.doFrame = function () {
 
   // ADDING ENEMY 
   
-  if (self.counterEnemy === 30) {
-    self.addEnemy()
-    self.counterEnemy = 0; 
+  if (self.counterEnemy % 30 === 0) {
+    self.addEnemy();
   }
 
   self.enemyArray.forEach(function(item) {
