@@ -1,7 +1,7 @@
 "use strict";
 
 
-function Player(ctx) {
+function Player(ctx, canvas) {
   this.ctx  = ctx; 
 
   this.position = {
@@ -20,14 +20,18 @@ function Player(ctx) {
     y: 0, 
   }
 
-  
+  this.canvas = document.getElementById("canvas");; 
+  this.canvasCtx = canvas.getContext("2d");
 
+  this.mousePositionX = 0; 
+  this.mousePositionY = 0;
 }
 
   Player.prototype.draw = function () {
     var self = this;
 
- 
+  
+    
     
     self.ctx.fillStyle = "blue";
     self.ctx.fillRect(self.position.x, self.position.y, self.size.width, self.size.height); 

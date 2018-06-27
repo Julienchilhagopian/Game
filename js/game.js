@@ -8,6 +8,7 @@ function Game(ctx, canvas, theEnd) {
   };
 
   this.player = null; 
+  this.canvas = canvas;
 
   this.callback = theEnd; 
   this.isEnded = false; 
@@ -28,7 +29,7 @@ Game.prototype.addEnemy = function () {
   var self = this; 
 
   self.enemyArray.push(new Enemy(self.ctx));
-  console.log(self.enemyArray);
+  // console.log(self.enemyArray);
   
 } 
 
@@ -53,7 +54,7 @@ Game.prototype.removeGift = function () {
 Game.prototype.start = function () {
   var self = this;
 
-  self.player = new Player(self.ctx);  
+  self.player = new Player(self.ctx, canvas);  
  
   self.doFrame();
 };
@@ -262,6 +263,7 @@ Game.prototype.doFrame = function () {
 
   
 };
+
 
 
 

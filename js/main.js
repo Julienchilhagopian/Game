@@ -88,7 +88,8 @@ function main () {
 
 
   function playGame() {
-    
+
+    var canvas = document.getElementById("canvas"); 
     var canvasCtx = canvas.getContext("2d");
 
     game = new Game(canvasCtx, canvas, endGame);
@@ -102,7 +103,10 @@ function main () {
 
     document.addEventListener("keydown", handleKeyDown);
 
+
   };
+
+
 
   function endGame () {
     canvas.remove(); 
