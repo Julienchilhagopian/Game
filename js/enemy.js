@@ -5,19 +5,19 @@ function Enemy (ctx) {
   this.ctx = ctx; 
 
 
-  this.speedx = 0.6;
+  this.speedx = Math.floor(Math.random() * ((1 - (-1)) + 1) + (-1));
   this.speedy = 0.85;
  
 
- this.x = Math.floor(Math.random() * canvas.width);
- this.y = 10;
+ this.x = 635;
+ this.y = 490;
 
   this.size = {
       width: 30,
       height: 30,
   }; 
 
- this.radius = 10;
+
 
  this.image = new Image()
  this.image.src = 'http://xoxlabs.com/x/unity/2D_Mario_Clone/2D%20Mario%20Clone/Assets/2D%20Mario%20Assets/Textures/projectile_fireball.png'

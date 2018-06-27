@@ -181,7 +181,7 @@ Game.prototype.score = function () {
   var self = this;
 
   self.ctx.font = '30px sans-serif';
-  self.ctx.fillStyle = 'black'
+  self.ctx.fillStyle = 'white'
   self.ctx.fillText('Score: ' + self.counterScore, 1100, 50);
 }
 
@@ -217,8 +217,8 @@ Game.prototype.doFrame = function () {
 
   // slow speed gift 
   if (self.triggerSlowSpeed) {
-    item.speedx -= 0.03;
-    item.speedy += 0.05;
+    item.speedx += 0.01;
+    item.speedy -= 0.05;
   };
 
     item.checkCollision();

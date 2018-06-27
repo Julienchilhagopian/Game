@@ -31,7 +31,7 @@ body {
   background-image: url(./img/backgroud-img-game.png);
   background-size: cover;
   background-repeat: no-repeat;
-  height: 640px;
+  height: 710px;
   
   
 }
@@ -52,7 +52,7 @@ body {
 #btn-start {
   display: block;
   margin: 0 auto;
-  padding: 25px 100px; 
+  padding: 30px 110px; 
   background-color: rgba(32, 0, 1, 0.801);
   text-transform: uppercase;
   font-size: 40px;
@@ -75,7 +75,7 @@ body {
   background-image: url(./img/background-img-drark.jpg);
   background-size: cover;
   background-repeat: no-repeat;
-  height: 640px;
+  height: 710px;
 }
 
 
