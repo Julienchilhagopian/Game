@@ -7,7 +7,13 @@ function createHtml(html) {
 }
 
 var introScreen = createHtml(`<div id="intro">
-<h1 class="intro-title">Survive the flames</h1>
+<h1 class="intro-title title-position">Survive the flames</h1>
+
+
+</div>`);
+
+var endScreen = createHtml(`<div id="end">
+<h1 class="intro-title">THE END</h1>
 
 
 </div>`);
@@ -19,8 +25,9 @@ function main () {
   var canvas; 
   var game= null;
   var button = null;
-  var score = null;
-  
+  var scoreOutput = null;
+  // var score = null;
+ 
   
   function buildSplash() {
     
@@ -103,21 +110,32 @@ function main () {
 
   function endGame () {
     canvas.remove(); 
-    score = game.counterScore; 
     
-
-    
-    
-    game = 0; 
+    // game = 0; 
     buildGameOver()
 
   }
 
   function buildGameOver () {
+
+    container.appendChild(endScreen);
+    var endDiv = document.getElementById("end");
+
+
+    var scoreCounter = game.counterScore;
+    game = 0; 
+
+    scoreOutput = document.createElement("h2"); 
+    scoreOutput.setAttribute("id", "score"); 
+    scoreOutput.innerText = "Your score : " + scoreCounter;
+    endDiv.appendChild(scoreOutput);
+
     button = document.createElement("button"); 
-    button.setAttribute("id", "ending-btn")
+    button.setAttribute("id", "end-btn")
     button.innerText = "RESTART"; 
-    container.appendChild(button);
+    endDiv.appendChild(button);
+
+
     button.addEventListener("click", handleRestartClick);
     
   }
@@ -126,6 +144,8 @@ function main () {
   function handleRestartClick () {
     button.removeEventListener("click", handleRestartClick); 
     button.remove();
+    scoreOutput.remove();
+    endScreen.remove();
     buildSplash(); 
   }
 
