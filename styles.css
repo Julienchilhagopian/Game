@@ -19,7 +19,7 @@ body {
 #canvas {
   border: 1px solid green;
   /* background-image: url(https://static1.squarespace.com/static/574faff6f8baf35e5da43485/5758471845bf218e90d0bebb/575d898007eaa04ea3c88c72/1465748141923/mirandi-yule-dribbble.gif); */
-  /* background-image: url(https://cdn.dribbble.com/users/797723/screenshots/3246670/cel-shade_fire_800x600.gif); */
+  background-image: url(https://cdn.dribbble.com/users/797723/screenshots/3246670/cel-shade_fire_800x600.gif);
   /* background-image: url(https://cdn.dribbble.com/users/563824/screenshots/2651843/untitled-4.gif); */
   background-size: cover;
    

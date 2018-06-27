@@ -218,7 +218,7 @@ Game.prototype.doFrame = function () {
   // slow speed gift 
   if (self.triggerSlowSpeed) {
     item.speedx += 0.01;
-    item.speedy -= 0.05;
+    item.speedy -= 0.09;
   };
 
     item.checkCollision();
