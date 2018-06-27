@@ -28,17 +28,40 @@ body {
 
 #intro {
   background-color: rgb(24, 25, 27);
-  background-image: url(https://vignette.wikia.nocookie.net/fantendo/images/9/92/Fire_PNG6032.png/revision/latest?cb=20160606034134);
-  background-position: bottom;
+  /* background-image: url(https://vignette.wikia.nocookie.net/fantendo/images/9/92/Fire_PNG6032.png/revision/latest?cb=20160606034134); */
+  background-image: url(./img/backgroud-img-game.png);
   background-size: cover;
   background-repeat: no-repeat;
   height: 640px;
-  display: flex; 
-  justify-content: center;
+  
+  
 }
 
 .intro-title {
   color: white;
   font-size: 120px;
-   
+  margin-top: 0;
+  margin-bottom: 150px; 
+  text-align: center;
+}
+
+#btn-start {
+  display: block;
+  margin: 0 auto;
+  padding: 25px 100px; 
+  background-color: rgba(32, 0, 1, 0.801);
+  text-transform: uppercase;
+  font-size: 40px;
+  font-weight: bolder;
+  color: white;
+  /* transition:0.3s ease all; */
+  border: 2px solid rgba(32, 0, 1, 0.801);
+
+}
+
+#btn-start:hover {
+  background-color: rgb(32, 0, 1);
+  background-image: url(https://78.media.tumblr.com/9951ca2e7e884a48ca5b5269f5514cd6/tumblr_o05a7p1j5z1tzv1dpo1_500.gif); 
+  background-position: center;
+  color: white;
 }

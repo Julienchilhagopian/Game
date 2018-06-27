@@ -174,6 +174,15 @@ Game.prototype.update = function () {
 
 };
 
+// SCORE
+
+Game.prototype.score = function () {
+  var self = this;
+  self.ctx.fillStyle = 'black'
+  self.ctx.fillText('Score: ' + self.counterEnemy, 350, 50);
+}
+
+// DO FRAME PART 
 
 Game.prototype.doFrame = function () {
   var self = this;
@@ -184,6 +193,7 @@ Game.prototype.doFrame = function () {
   self.clearCanvas();
   self.draw();
 
+  self.score();
 
   // ADDING ENEMY 
   

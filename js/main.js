@@ -6,37 +6,42 @@ function createHtml(html) {
   return div.children[0];
 }
 
-
 var introScreen = createHtml(`<div id="intro">
 <h1 class="intro-title">Survive the flames</h1>
-<button id="">
+
+
 </div>`);
 
 
-
 function main () {
-
-  var container = null; 
-  var button = null; 
-  var canvas; 
-  var game= null; 
   
-
+  var container = document.getElementById("game-container");  
+  var canvas; 
+  var game= null;
+  var button = null;
+  
+  
   function buildSplash() {
-    container = document.getElementById("game-container"); 
     
+    button = createHtml(`
+    <div>
+    <button id="btn-start">start</button>
+    </div>
+    `)
     // STYLE 
     
     container.appendChild(introScreen);
-    button = document.createElement("button"); 
-    button.setAttribute("id", "btn-start"); 
-    button.innerText = "START"; 
-    container.appendChild(button);
+
+    var introDiv = document.getElementById("intro");
+    introDiv.appendChild(button);
+
+    button = document.getElementById("btn-start"); 
     button.addEventListener("click", handleStartClick);
     
   }
 
   function handleStartClick () {
+  
     button.removeEventListener("click", handleStartClick); 
     button.remove();
     introScreen.remove();
