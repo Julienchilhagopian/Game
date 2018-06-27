@@ -19,6 +19,7 @@ function main () {
   var canvas; 
   var game= null;
   var button = null;
+  var score = null;
   
   
   function buildSplash() {
@@ -55,7 +56,7 @@ function main () {
     container.appendChild(canvas); 
 
     canvas.width = window.innerWidth; 
-    canvas.height = 610; 
+    canvas.height = window.innerHeight; 
 
     playGame();
       
@@ -102,6 +103,11 @@ function main () {
 
   function endGame () {
     canvas.remove(); 
+    score = game.counterScore; 
+    
+
+    
+    
     game = 0; 
     buildGameOver()
 
@@ -122,9 +128,6 @@ function main () {
     button.remove();
     buildSplash(); 
   }
-
-
-
 
   buildSplash();
 }

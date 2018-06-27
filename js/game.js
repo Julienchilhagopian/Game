@@ -15,6 +15,7 @@ function Game(ctx, canvas, theEnd) {
   this.giftArray = []; 
   this.counterEnemy = 0; 
   this.counterGift = 0; 
+  this.counterScore = 0;
   this.giftPowerArray = ['smaller', 'bigger', 'speed', 'slow']; 
   this.triggerFastSpeed = false; 
   this.triggerSlowSpeed = false; 
@@ -178,8 +179,10 @@ Game.prototype.update = function () {
 
 Game.prototype.score = function () {
   var self = this;
+
+  self.ctx.font = '30px sans-serif';
   self.ctx.fillStyle = 'black'
-  self.ctx.fillText('Score: ' + self.counterEnemy, 350, 50);
+  self.ctx.fillText('Score: ' + self.counterScore, 1100, 50);
 }
 
 // DO FRAME PART 
@@ -188,6 +191,7 @@ Game.prototype.doFrame = function () {
   var self = this;
   self.counterEnemy++; 
   self.counterGift++; 
+  self.counterScore++;
 
 
   self.clearCanvas();
