@@ -62,6 +62,7 @@ body {
 #btn-start:hover {
   background-color: rgb(32, 0, 1);
   background-image: url(https://78.media.tumblr.com/9951ca2e7e884a48ca5b5269f5514cd6/tumblr_o05a7p1j5z1tzv1dpo1_500.gif); 
+  /* background-image: url(https://media.giphy.com/media/6Sivhwc8SgUtW/giphy.gif); */
   background-position: center;
   color: white;
 }
