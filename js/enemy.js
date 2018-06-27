@@ -13,11 +13,14 @@ function Enemy (ctx) {
  this.y = 10;
 
   this.size = {
-      width: 10,
-      height: 10,
+      width: 30,
+      height: 30,
   }; 
 
  this.radius = 10;
+
+ this.image = new Image()
+ this.image.src = 'http://xoxlabs.com/x/unity/2D_Mario_Clone/2D%20Mario%20Clone/Assets/2D%20Mario%20Assets/Textures/projectile_fireball.png'
 
 
 };
@@ -26,9 +29,11 @@ function Enemy (ctx) {
 Enemy.prototype.draw = function () {
   var self = this; 
   
-  self.ctx.fillStyle = "red";
-  self.ctx.fillRect(self.x, self.y, self.size.width, self.size.width);
+  // keeping this just in case.
+  // self.ctx.fillStyle = "red";
+  // self.ctx.fillRect(self.x, self.y, self.size.width, self.size.width);
 
+  self.ctx.drawImage(self.image, self.x, self.y, self.size.width, self.size.height)
 
   // self.ctx.beginPath();
   // self.ctx.arc(self.x, self.y, self.radius, 0, Math.PI*2);
