@@ -5,7 +5,9 @@ function Enemy (ctx) {
   this.ctx = ctx; 
 
 
-  this.speedx = Math.floor(Math.random() * ((1 - (-1)) + 1) + (-1));
+  var randomX = Math.random() * ((0 - (-1)) + 1) + (-1);
+
+  this.speedx = Math.round(randomX * 100) / 100;
   this.speedy = 0.85;
  
 

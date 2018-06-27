@@ -100,7 +100,6 @@ function main () {
 
     // gameTest; 
 
-
     document.addEventListener("keydown", handleKeyDown);
 
 
