@@ -66,25 +66,29 @@ function main () {
       
   }
 
-  function handleKeyDown (event) {
-    var self = this;
+  // function handleKeyDown (event) {
+  //   var self = this;
     
-      switch(event.key){
-        case 'z': 
-        game.player.moveUp(); 
-        break; 
-        case 's': 
-        game.player.moveDown();
-        break;
-        case 'q':
-        game.player.moveLeft();
-        break;
-        case 'd':
-        game.player.moveRight();
-        break; 
-      }
+  //     switch(event.key){
+  //       case 'z': 
+  //       game.player.moveUp(); 
+  //       break; 
+  //       case 's': 
+  //       game.player.moveDown();
+  //       break;
+  //       case 'q':
+  //       game.player.moveLeft();
+  //       break;
+  //       case 'd':
+  //       game.player.moveRight();
+  //       break; 
+  //     }
       
-  };
+  // };
+
+  function mouseMovement () {
+    game.player.mouseControle();
+  }
 
 
   function playGame() {
@@ -100,13 +104,14 @@ function main () {
 
     // gameTest; 
 
-    document.addEventListener("keydown", handleKeyDown);
+    // document.addEventListener("keydown", handleKeyDown);
+      document.addEventListener("mousemove", mouseMovement);
 
 
   };
 
 
-  
+
   function endGame () {
     canvas.remove(); 
     

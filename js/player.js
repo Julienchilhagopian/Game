@@ -26,7 +26,7 @@ function Player(ctx, canvas) {
   this.mousePositionX = 0; 
   this.mousePositionY = 0;
 
-  this.image = new Image()
+  this.image = new Image();
   this.image.src = 'img/FINAL-V2.png'
 }
 
@@ -48,25 +48,25 @@ function Player(ctx, canvas) {
 
   // Movements 
 
-  Player.prototype.moveUp = function () {
-    var self = this;
-    self.position.y -= 30;
-  }
+  // Player.prototype.moveUp = function () {
+  //   var self = this;
+  //   self.position.y -= 30;
+  // }
   
-  Player.prototype.moveDown = function () {
-    var self = this;
-    self.position.y += 30;
-  }
+  // Player.prototype.moveDown = function () {
+  //   var self = this;
+  //   self.position.y += 30;
+  // }
 
-  Player.prototype.moveLeft = function () {
-    var self = this;
-    self.position.x -= 30;
-  }
+  // Player.prototype.moveLeft = function () {
+  //   var self = this;
+  //   self.position.x -= 30;
+  // }
 
-  Player.prototype.moveRight = function () {
-    var self = this;
-    self.position.x += 30;
-  }
+  // Player.prototype.moveRight = function () {
+  //   var self = this;
+  //   self.position.x += 30;
+  // }
 
 
   // Gift powers
@@ -97,7 +97,17 @@ function Player(ctx, canvas) {
 
 
 
+  
+  Player.prototype.mouseControle = function() {
+  var self = this;
+    function showMouse (event) {
+     self.position.x = event.clientX - 30; 
+     self.position.y = event.clientY - 40;
+    console.log(event.clientX, event.clientY);
+  }
 
+  showMouse(event);
 
+  };
 
 
