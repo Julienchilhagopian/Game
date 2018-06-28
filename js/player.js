@@ -36,12 +36,12 @@ function Player(ctx, canvas) {
   
     
     
+    self.ctx.strokeStyle = 'rgba(128, 128, 128, 0.61)';
+    self.ctx.strokeRect(self.position.x, self.position.y, self.size.width, self.size.height);
    
     self.ctx.drawImage(self.image, self.position.x, self.position.y, self.size.width, self.size.height); 
-
     // self.ctx.fillStyle = "blue";
     // self.ctx.fillRect(self.position.x, self.position.y, self.size.width, self.size.height); 
-
 
     
   }
@@ -85,10 +85,10 @@ function Player(ctx, canvas) {
   Player.prototype.biggerPowerGift = function () {
     var self = this;
   
-    self.size.width = 200;
-    self.size.height = 270;
+    self.size.width = 125;
+    self.size.height = 175;
 
-    self.mouseCorrectionX = 100;
+    self.mouseCorrectionX = 60;
     self.mouseCorrectionY = 100;
 
   };
@@ -115,7 +115,7 @@ function Player(ctx, canvas) {
    
   }
 
-  showMouse(event);
+  return showMouse(event);
 
   };
 

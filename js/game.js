@@ -39,7 +39,7 @@ Game.prototype.addGift = function () {
 
   var randomPower = self.giftPowerArray[Math.floor(Math.random() * 4)]
 
-  self.giftArray.push(new Gift('bigger', self.ctx)); 
+  self.giftArray.push(new Gift(randomPower, self.ctx)); 
   console.log(self.giftArray); 
 }
 

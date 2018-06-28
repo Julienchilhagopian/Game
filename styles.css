@@ -10,6 +10,8 @@ html {
 body {
   margin: 0;
   padding: 0;
+  font-family: 'Quattrocento', serif;
+  font-weight: 700;
 }
 
 /* ---- Style ---- */
@@ -17,12 +19,12 @@ body {
 
 
 #canvas {
-  border: 1px solid green;
+  border: 1px solid black;
   /* background-image: url(https://static1.squarespace.com/static/574faff6f8baf35e5da43485/5758471845bf218e90d0bebb/575d898007eaa04ea3c88c72/1465748141923/mirandi-yule-dribbble.gif); */
   background-image: url(https://cdn.dribbble.com/users/797723/screenshots/3246670/cel-shade_fire_800x600.gif);
   /* background-image: url(https://cdn.dribbble.com/users/563824/screenshots/2651843/untitled-4.gif); */
   background-size: cover;
-   
+  
 }
 
 #intro {
@@ -41,13 +43,12 @@ body {
   font-size: 120px;
   margin-top: 0;
   text-align: center;
+  margin-bottom: 150px; 
 }
 
 /* soorry for the class name */
 
-.title-position {
-  margin-bottom: 150px; 
-}
+
 
 #btn-start {
   display: block;
@@ -78,12 +79,32 @@ body {
   height: 710px;
 }
 
+#end h1 {
+  margin-bottom: 0px;
+}
+
+
+.end-title {
+  color: white;
+  font-size: 120px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-bottom: 100px;
+  text-align: center;
+}
+
+
+
+
 
 #score {
   text-align: center;
   color: white;
   font-size: 60px;
+  margin-top: 0px;
+  margin-bottom: 100px;
 }
+
 
 #end-btn {
   display: block;

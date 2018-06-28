@@ -7,12 +7,12 @@ function createHtml(html) {
 }
 
 var introScreen = createHtml(`<div id="intro">
-<h1 class="intro-title title-position">Survive the flames</h1>
+<h1 class="intro-title">Survive the flames</h1>
 
 </div>`);
 
 var endScreen = createHtml(`<div id="end">
-<h1 class="intro-title">THE END</h1>
+<h1 class="end-title">THE END</h1>
 
 </div>`);
 
@@ -116,7 +116,8 @@ function main () {
     canvas.remove(); 
     
     // game = 0; 
-    buildGameOver()
+    buildGameOver(); 
+    document.removeEventListener("mousemove", mouseMovement);
 
   }
 
