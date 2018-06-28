@@ -23,8 +23,8 @@ function Player(ctx, canvas) {
   this.canvas = document.getElementById("canvas"); 
   this.canvasCtx = canvas.getContext("2d");
 
-  this.mousePositionX = 0; 
-  this.mousePositionY = 0;
+  this.mouseCorrectionX = 30; 
+  this.mouseCorrectionY = 40;
 
   this.image = new Image();
   this.image.src = 'img/FINAL-V2.png'
@@ -77,13 +77,19 @@ function Player(ctx, canvas) {
     self.size.width = 15;
     self.size.height = 15;
 
+    self.mouseCorrectionX = 20;
+    self.mouseCorrectionY = 10;
+
   };
 
   Player.prototype.biggerPowerGift = function () {
     var self = this;
   
-    self.size.width = 180;
-    self.size.height = 250;
+    self.size.width = 200;
+    self.size.height = 270;
+
+    self.mouseCorrectionX = 100;
+    self.mouseCorrectionY = 100;
 
   };
 
@@ -93,6 +99,9 @@ function Player(ctx, canvas) {
     self.size.width = 60;
     self.size.height = 80;
 
+    self.mouseCorrectionX = 30;
+    self.mouseCorrectionY = 40;
+
   };
 
 
@@ -101,9 +110,9 @@ function Player(ctx, canvas) {
   Player.prototype.mouseControle = function() {
   var self = this;
     function showMouse (event) {
-     self.position.x = event.clientX - 30; 
-     self.position.y = event.clientY - 40;
-    console.log(event.clientX, event.clientY);
+     self.position.x = event.clientX - self.mouseCorrectionX; 
+     self.position.y = event.clientY - self.mouseCorrectionY;
+   
   }
 
   showMouse(event);
