@@ -106,7 +106,7 @@ function main () {
   };
 
 
-
+  
   function endGame () {
     canvas.remove(); 
     

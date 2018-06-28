@@ -22,7 +22,7 @@ function Enemy (ctx) {
 
 
  this.image = new Image()
- this.image.src = 'http://xoxlabs.com/x/unity/2D_Mario_Clone/2D%20Mario%20Clone/Assets/2D%20Mario%20Assets/Textures/projectile_fireball.png'
+ this.image.src = 'img/projectile_fireball.png'
 
 
 };
@@ -35,7 +35,7 @@ Enemy.prototype.draw = function () {
   // self.ctx.fillStyle = "red";
   // self.ctx.fillRect(self.x, self.y, self.size.width, self.size.width);
 
-  self.ctx.drawImage(self.image, self.x, self.y, self.size.width, self.size.height)
+  self.ctx.drawImage(self.image, self.x, self.y, self.size.width, self.size.height);
 
   // self.ctx.beginPath();
   // self.ctx.arc(self.x, self.y, self.radius, 0, Math.PI*2);
