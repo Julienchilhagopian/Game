@@ -59,6 +59,8 @@ function main () {
     canvas.setAttribute("id", "canvas"); 
     container.appendChild(canvas); 
 
+    canvas.classList.add("nocursor");
+
     canvas.width = window.innerWidth; 
     canvas.height = window.innerHeight; 
 
