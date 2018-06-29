@@ -11,8 +11,8 @@ function Enemy (ctx) {
   this.speedy = 0.85;
  
 
- this.x = 635;
- this.y = 490;
+ this.x = canvas.width / 2;
+ this.y = canvas.height * 2/3;
 
   this.size = {
       width: 30,
