@@ -12,7 +12,7 @@ function Enemy (ctx) {
  
 
  this.x = canvas.width / 2;
- this.y = canvas.height * 2/3;
+ this.y = canvas.height * 0.6;
 
   this.size = {
       width: 30,
