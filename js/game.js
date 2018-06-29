@@ -40,7 +40,7 @@ Game.prototype.addGift = function () {
   var randomPower = self.giftPowerArray[Math.floor(Math.random() * 4)]
 
   self.giftArray.push(new Gift(randomPower, self.ctx)); 
-  console.log(self.giftArray); 
+  // console.log(self.giftArray); 
 }
 
 
@@ -85,7 +85,7 @@ Game.prototype.playerCollisionFINAL = function (item) {
     enemyData.x + enemyData.width > playerData.x &&
     enemyData.y < playerData.y + playerData.height &&
     enemyData.height + enemyData.y > playerData.y) {
-      console.log("ok"); 
+      // console.log("ok"); 
       this.isEnded = true; 
 }
 
