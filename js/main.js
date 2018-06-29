@@ -105,6 +105,9 @@ function main () {
     // }, 3000);
 
     // gameTest; 
+   
+   game.audio.play();
+
 
     // document.addEventListener("keydown", handleKeyDown);
       document.addEventListener("mousemove", mouseMovement);
@@ -116,8 +119,8 @@ function main () {
 
   function endGame () {
     canvas.remove(); 
-    
-    // game = 0; 
+    game.audio.pause();
+  
     buildGameOver(); 
     document.removeEventListener("mousemove", mouseMovement);
 
@@ -128,7 +131,7 @@ function main () {
     container.appendChild(endScreen);
     var endDiv = document.getElementById("end");
 
-
+   
     var scoreCounter = game.counterScore;
     game = 0; 
 

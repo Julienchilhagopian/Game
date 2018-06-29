@@ -22,6 +22,7 @@ function Game(ctx, canvas, theEnd) {
   this.triggerSlowSpeed = false; 
   this.eraseGift = false;
   this.start();
+  this.audio = new Audio("sound/FIRE  Fire Sound Effect.mp3"); 
 
 };
 
